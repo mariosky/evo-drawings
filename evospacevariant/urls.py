@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from evospacevariant import settings
 
 from django.contrib import admin
 admin.autodiscover()
@@ -7,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'evospacevariant.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     url(r'^$', 'shapes.views.home', name='home'),
     url(r'^facebook/get_login/?$', 'shapes.views.facebook_get_login', name='facebook_get_login'),
     url(r'^facebook/login/?$', 'shapes.views.facebook_login', name='facebook_login'),
