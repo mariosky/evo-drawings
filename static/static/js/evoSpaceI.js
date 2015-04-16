@@ -664,7 +664,7 @@ $(document).ready(function () {
     }
 
         function dataRequest(){
-         $("#get_more").hide();
+         $("#get_more").hide();//crh
          $("#check").hide();   
         $.ajax(
                 {
