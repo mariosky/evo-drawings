@@ -1,0 +1,19 @@
+.grid-item {;
+width: 350px;
+}
+
+#selectable li {
+    height: 30px;
+}
+
+
+.thumbnail{
+	height: 550px;
+	width: 560px;
+	background-color: #414244;
+}
+
+body{
+	background-image: url("/static/img/white_pattern1.png");
+	padding-top: 50px;
+}

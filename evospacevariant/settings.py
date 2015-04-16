@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+#Facebook configuration
+
+FACEBOOK_APP_ID = ''
+FACEBOOK_APP_SECRET = ''
+FACEBOOK_REDIRECT_URL = ''
+AUTHENTICATION_BACKENDS = (
+    'shapes.backends.FacebookBackend',
+)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -36,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shapes',
 )
 
 MIDDLEWARE_CLASSES = (
