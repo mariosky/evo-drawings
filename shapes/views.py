@@ -333,9 +333,11 @@ def individual_view(request, individual_id):
 
 def facebook_get_login(request):
     state = request.session.session_key
-    url = """https://www.facebook.com/dialog/oauth?client_id=%s&redirect_uri=%s&state=%s""" % \
+    scope = "user_friends, email"
+    url = """https://www.facebook.com/dialog/oauth?client_id=%s&redirect_uri=%s&state=%s&scope=%s""" % \
           (settings.FACEBOOK_APP_ID, settings.FACEBOOK_REDIRECT_URL,
-           state
+           state,
+           scope
           )
 
     return HttpResponseRedirect(url)
