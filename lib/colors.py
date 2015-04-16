@@ -11,7 +11,7 @@ from store import redis
 #import redis
 from userFitnessFuzzyRules import fisuser
 
-#r = redis
+r = redis
 
 
 def fuzzy_fitness(fitness):
@@ -91,7 +91,7 @@ def init_pop_crh(populationSize, popName="pop"):
         print individual
         server.put_individual(**individual)
 
-    r = redis.StrictRedis(host='localhost', port=6379, db=0)
+    #r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
     redis_data = [eval(r.get(ind)) for ind in r.keys("pop:individual:*")]
     for ind in redis_data:
