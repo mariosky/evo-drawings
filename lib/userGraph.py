@@ -11,6 +11,7 @@ import os
 from py2neo.packages.urimagic import URI
 GRAPHENEDB_URL = "http://app35846518:DpFde3tQNFZ8L93t0GIE@app35846518.sb05.stations.graphenedb.com:24789"
 graphenedb_url = os.environ.get("GRAPHENEDB_URL", "http://localhost:7474/")
+service_root = neo4j.ServiceRoot(URI(graphenedb_url).resolve("/"))
 graph_db=service_root.graph_db
 
 #local  ne4j
