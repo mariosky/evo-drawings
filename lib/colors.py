@@ -4,6 +4,7 @@ from operator import itemgetter
 #from evospace import *
 from evospace_redis_neo4j import *
 from userGraph import Nodo
+from scaleRanking import get_level
 import random
 import numpy
 import sys
@@ -21,17 +22,24 @@ def fuzzy_fitness(fitness):
     rate_by_fuzzy=[]
     fuzzy=[] 
 
+    print "FITNESS"
+    print fitness
+
     for u  in fitness:
         if u != "DefaultContext":
             usr, usr_date = u.split(":")
             
             exp = int(r.get(usr))
             rate = int(fitness[u])
+            n = Person()
+            participation = n.get_participation(usr)
+            participation = participation[0][0]
+            ranking=get_level(participation)
             print str(rate) +" , " + str(exp)
             
-            print fisuser(rate,exp)
-            rate_by_fuzzy.append(rate * fisuser(rate,exp))
-            fuzzy.append(fisuser(rate,exp))
+            print fisuser(rate,exp, participation)
+            rate_by_fuzzy.append(rate * fisuser(rate, exp, ranking))
+            fuzzy.append(fisuser(rate,exp, ranking))
 
     
     #print rate_by_fuzzy
