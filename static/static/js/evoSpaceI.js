@@ -702,7 +702,7 @@ $(document).ready(function () {
 
 
                                     if ((width >= 1023) ) {
-                                        alert('Remove my nav!');
+                                        //alert('Remove my nav!');
                
                                         function getPJS() {
                                             var pjs = Processing.getInstanceById(element.id);
@@ -711,7 +711,7 @@ $(document).ready(function () {
                                                 var chrome = pjs.getChromosome();
                                                 var canvasChange = pjs.getSize();
                                                 //alert(chrome)
-                                                alert(canvasChange);
+                                                //alert(canvasChange);
                                                 chrome.length = 0;
                                                 canvasChange.length = 0;
                                                 Array.prototype.push.apply(chrome, chromosome);
@@ -743,15 +743,15 @@ $(document).ready(function () {
 
                                         element.nextElementSibling.childNodes[3].textContent= suma +" likes";
 
-                                        alert('hola');
+                                        //alert('hola');
 
                                     } else {
-                                         alert('Do nothing');
+                                         //alert('Do nothing');
                                          
                                              function getPJS2() {
                                                 var pjs = Processing.getInstanceById(element.id);
                                                 if(pjs!=null) {
-                                                    alert('nada');
+                                                    //alert('nada');
                                                     var chrome = pjs.getChromosome();
                                                     
                                                     //alert(chrome)
