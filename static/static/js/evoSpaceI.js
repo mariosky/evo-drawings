@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     var get_collections = function(){
         var user=$("#username").val();
-        alert(user);
+        // alert(user);
         $.ajax({
             type: "GET",
             url: "/get_user_collections/"+user+"/",
@@ -679,13 +679,7 @@ $(document).ready(function () {
                         //Put them back
                         //$("#get_more")[0].hide();
 
-                        //$("#get_more")[0].innerHTML = "Get More"
-
-                        
-                        
-                            
-                        
-                           
+                        //$("#get_more")[0].innerHTML = "Get More" 
 
 
                         if  (data.result == null)
@@ -707,7 +701,7 @@ $(document).ready(function () {
                                         function getPJS() {
                                             var pjs = Processing.getInstanceById(element.id);
                                             if(pjs!=null) {
-                                                alert('if');
+                                                //alert('if');
                                                 var chrome = pjs.getChromosome();
                                                 var canvasChange = pjs.getSize();
                                                 //alert(chrome)
