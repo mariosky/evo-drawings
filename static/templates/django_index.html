@@ -134,9 +134,20 @@
           <a class="navbar-brand" href="#">Shapes App</a>
         </div>
         <div class="navbar-collapse collapse">
-
-
-
+         <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -193,7 +204,7 @@
             <hr/>
           <h2 id="friends">Friends</h2>
             {% if user.is_authenticated %}
-                      <h1>hello</h1>
+                      
                     {% for f in friends  %}
 
                             <div class='col-sm-2'>
@@ -225,7 +236,7 @@
           {% endif %}
 
 
-          <hr/>
+          <!-- <hr/>
           <h2>How to:</h2>
           <p><ul >
                     <li>
@@ -257,7 +268,7 @@
                    </ul>
             </p>
 
-
+ -->
           </div>
 
 
