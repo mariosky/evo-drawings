@@ -311,6 +311,142 @@ def home(request):
                                                     'api_server': 'http://app.evospace.org', 'friends': app_friends},
                               context_instance=RequestContext(request))
 
+def inicio(request):
+    #print request
+    if request.user.is_authenticated():
+        #REFACTOR GET_FRIENDS
+        print request.user.username
+        face = FacebookSession.objects.get(uid=request.user.username)
+        friends = None
+        
+        friends = face.query("me", connection_type="friends", fields='name,installed')
+       
+        print friends
+       
+        
+        #print "Amigos"
+        #print friends
+
+
+
+            #print "Hola, mundo!!"
+
+
+        #Condultar nodo usuario
+        u = request.user.username
+        e = request.user.email
+        fn = request.user.first_name
+        ln = request.user.last_name
+        na = fn + " " + ln
+        n = Nodo()
+        p = Person()
+        print na
+        person_result = p.get_person(na)
+        print "if resultado igual a error"
+        print person_result
+
+        # if not r:
+        #     print "creando nodo"
+        #     n.create_nodo(element_type="person", id=u, email=e, name=na)
+        #     print "creo nodo"
+        #     print n
+
+        print "+++++++++++++++++"
+        #print na, r[0][0]["name"]
+
+        if request.method == 'POST':
+            if request.POST.has_key("webDesing"):
+                web_design = request.POST["webDesing"]
+                if web_design == "on":
+                    nodo_web_design = Nodo()
+                    nodo_web_design_exist = WebDesign() # creando objeto WebDesig
+                    web_design_result = nodo_web_design_exist.get_node("web design") # Verificar si hay resultado
+
+                    print "estoy en el if"
+                    if not web_design_result: # si lista esta vacia quiere decir que el nodo web design no exist hay que crearlo
+                        nodo_web_design.create_nodo(element_type="web_des", name="web design")
+                        print "Nodo Web design creado"
+
+                    #nodo_web_design_exist = WebDesign() # creando objeto WebDesig
+                    #result = nodo_web_design_exist.get_node("web design") # Verificar si hay resultado
+
+                    nodo1 = node(person_result[0][0])
+                    nodo2 = node(web_design_result[0][0])
+                    print "Making a relition LIKE between nodes"
+                    relation = Relations()
+                    relation.likes(nodo1,nodo2)
+                    print "You like web design"
+
+            if request.POST.has_key("webDevelopment"):
+                web_dev = request.POST["webDevelopment"]
+                if web_dev == "on":
+                    nodo_web_dev = Nodo()
+                    nodo_web_dev_exist = WebDev()
+                    web_develoment_result = nodo_web_dev_exist.get_node("web develoment")
+
+                    if not web_develoment_result:
+                        nodo_web_dev.create_node(element_type="web_dev", name="web design")
+
+                    web_develoment_result = nodo_web_dev_exist.get_node("web develoment")
+
+                    nodo1 = node(person_result[0][0])
+                    nodo2 = node(web_develoment_result[0][0])
+                    relation = Relations()
+                    relation.likes(nodo1,nodo2)
+                    print "You like web develoment"
+
+            if request.POST.has_key("internet"):
+                internet = request.POST["internet"]
+
+                if internet == "on":
+                    nodo_internet = Nodo()
+                    nodo_internet_exist = WebDev
+                    web_develoment_result = nodo_web_dev_exist.get_node("web develoment")
+
+                    if not web_develoment_result:
+                        nodo_web_dev.create_node(element_type="web_dev", name="web design")
+
+                    web_develoment_result = nodo_web_dev_exist.get_node("web develoment")
+
+                    nodo1 = node(person_result[0][0])
+                    nodo2 = node(web_develoment_result[0][0])
+                    relation = Relations()
+                    relation.likes(nodo1,nodo2)
+
+                    print "You like internet"
+                    
+            #internet = request.POST["internet"]
+            #elementary = request.POST["elementary"]
+            #phd = request.POST['PhD']
+
+        if friends:
+        # Mejor con FQL
+            app_friends = [f for f in friends['data'] if f.has_key('installed')]
+
+            if app_friends:
+                for i in range(len(app_friends)):
+                    person_relation_knows = p.get_relation_knows(na, app_friends[i]["name"])
+                    if person_relation_knows:
+                        print "Existe relacion entre ambos"
+                        pass
+                    else:
+                        print "crea relacion knows"
+                        friend_result = p.get_person(app_friends[i]["name"])
+                        if friend_result:
+                            nodo_user = node(person_result[0][0])
+                            nodo_friend = node(friend_result[0][0])
+                            relation_knows = Relations()
+                            relation_knows.knows(nodo_user, nodo_friend)
+
+        else:
+            app_friends = None
+    else:
+        app_friends = None
+
+    return render_to_response('epanol_index.html', {'static_server': 'https://s3.amazonaws.com/evospace/prototype/',
+                                                    'api_server': 'http://app.evospace.org', 'friends': app_friends},
+                              context_instance=RequestContext(request))
+
 
 def individual_view(request, individual_id):
     key = "pop:individual:%s" % (individual_id)
