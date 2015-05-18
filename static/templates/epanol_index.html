@@ -131,16 +131,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Aplicación Shapes</a>
+          <a class="navbar-brand" href="#">Shapes App</a>
         </div>
         <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Como usarlo <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Evaluar individuos</a></li>
-                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">Ver ansestros</a></li>
-                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Guardar Colecciones</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a></li>
                     <li class="divider"></li>
                     
                   </ul>
@@ -148,7 +148,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lenguage <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="https://thawing-forest-8930.herokuapp.com/">Ingles</a></li>
+                    <li><a href="https://thawing-forest-8930.herokuapp.com/espanol/">Spanish</a></li>
                     
                   </ul>
                 </li>
@@ -199,10 +199,10 @@
         <div class="col-md-4">
           <h2>Join us!</h2>
             {% if user.is_authenticated %}
-                <p> <img src="http://graph.facebook.com/{{user.username}}/picture?type=square"/> {{ user.first_name }}. <a href="https://thawing-forest-8930.herokuapp.com/logout">Log out</a> </p>
+                <p> <img src="http://graph.facebook.com/{{user.username}}/picture?type=square"/> {{ user.first_name }}. <a href="/logout">Log out</a> </p>
                 <input id="username" type="hidden" value="{{user.username}}"/>
             {% else %}
-                <p>new user. Please <a href="https://thawing-forest-8930.herokuapp.com/facebook/get_login">log in </a> with your facebook account.</p>
+                <p>new user. Please <a href="facebook/get_login">log in </a> with your facebook account.</p>
                
                 <input id="username" type="hidden" value="anonymous"/>
             {% endif %}
@@ -214,7 +214,7 @@
 
                             <div class='col-sm-2'>
 
-                                <a href="https://thawing-forest-8930.herokuapp.com/get_collection/{{ f.id }}">
+                                <a href="/get_collection/{{ f.id }}">
                                 <img src="http://graph.facebook.com/{{f.id}}/picture?type=square"
                                  alt="{{ f.name }}" title="{{ f.name }}"/> </a>
                             </div>
@@ -237,7 +237,7 @@
             <button id="add_collection" title="Add Collection"> + </button>
 
           {% else %}
-          <p><a href="https://thawing-forest-8930.herokuapp.com/facebook/get_login"> log in </a> to see start or see your collections.</p>
+          <p><a href="facebook/get_login"> log in </a> to see start or see your collections.</p>
           {% endif %}
 
 
