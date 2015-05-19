@@ -820,6 +820,7 @@ $(document).ready(function () {
             
             alert("delay");
             $("#ingles").hide();
+            $("#espanol").show();
 
         });
   

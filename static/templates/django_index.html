@@ -455,4 +455,358 @@
     <!--<script src="static/js/jquery.js"></script>-->
 
   </body>
+
+<body id="espanol">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=156105524554651";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+
+
+<!-- Primary Page Layout
+    =========================  ========================= -->
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Shapes App</a>
+        </div>
+        <div class="navbar-collapse collapse">
+         <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a></li>
+                    <li class="divider"></li>
+                    
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Language <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a >Spanish</a></li>
+                    
+                  </ul>
+                </li>
+              </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+
+<div class="container">
+    <header>
+        <div class="row">
+
+        <div class="col-md-6">
+            
+                <p><h4>Click on the shapes you like, and give the rate you prefer to get more animations!.</h4> </p>
+            
+        </div>
+        <div class="col-md-6">
+           
+            <!--<h4 class='strapline'> <a href="/"> <strong> Shapes</strong>   </a></h4>-->
+            <!--<h5 class='strapline'> Click on the shapes you like, and get more! </h5>-->
+
+        </div>
+
+        <div class="col-sm-4">
+            <br/>
+            <button class="btn " id="spanish" > Spanish</button> 
+            <!-- <button class="btn btn-success" id="respawn"> Respawn</button> -->
+            <button class="btn btn-success" id="get_more" > Get More</button> 
+             <button visibility="hidden" id="check" type="button" class="btn btn-success" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"> liked!</span>
+             </button>
+            <!-- <button id="check" class="btn" data-toggle="modal" data-target="#myModal"> Let us know you better!!</button> -->
+
+
+        </div>
+
+        </div>
+
+    <br/>
+    </header>   <!-- header  ================ -->
+
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Join us!</h2>
+            {% if user.is_authenticated %}
+                <p> <img src="http://graph.facebook.com/{{user.username}}/picture?type=square"/> {{ user.first_name }}. <a href="/logout">Log out</a> </p>
+                <input id="username" type="hidden" value="{{user.username}}"/>
+            {% else %}
+                <p>new user. Please <a href="facebook/get_login">log in </a> with your facebook account.</p>
+               
+                <input id="username" type="hidden" value="anonymous"/>
+            {% endif %}
+            <hr/>
+          <h2 id="friends">Friends</h2>
+            {% if user.is_authenticated %}
+                      
+                    {% for f in friends  %}
+
+                            <div class='col-sm-2'>
+
+                                <a href="/get_collection/{{ f.id }}">
+                                <img src="http://graph.facebook.com/{{f.id}}/picture?type=square"
+                                 alt="{{ f.name }}" title="{{ f.name }}"/> </a>
+                            </div>
+                    {% endfor   %}
+            {% else %}
+
+                <p><a href="facebook/get_login"> log in </a> to see your friend's collections.</p>
+            {% endif %}
+          <br/>
+
+          <br/>
+
+
+          <h2 id="collections">Collections</h2>
+          {% if user.is_authenticated %}
+            <ol id="selectable" class="glyphicons">
+
+
+            </ol>
+            <button id="add_collection" title="Add Collection"> + </button>
+
+          {% else %}
+          <p><a href="facebook/get_login"> log in </a> to see start or see your collections.</p>
+          {% endif %}
+
+
+          <!-- <hr/>
+          <h2>How to:</h2>
+          <p><ul >
+                    <li>
+                        <a class="youtube" href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a>
+                    </li>
+
+                    <li>
+                        <a class="youtube" href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a>
+                    </li>
+
+                    <li>
+                        <a class="youtube" href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a>
+                    </li>
+
+                </ul>
+          </p>
+          <hr/>
+          <h2>Help us:</h2>
+          <p><ul >
+                        <li>
+                          You can fork code from  <a href="https://github.com/mariosky/evospacei" target="_blank" >Git Hub. </a>
+                          But you better wait for the new version. Bugs and issues please also in <a href="https://github.com/mariosky/evospacei/issues" target="_blank">Git Hub. </a>.
+                        </li>
+                        <li>
+                            Our To-Do list, please put feature requests
+                            <a href="https://docs.google.com/document/d/1ncV4tehiLQjGMX1-FcCgiEepSsoJ90BSnYli5PN_jdI/edit?usp=sharing " target="_blank">here.</a>
+                        </li>
+
+                   </ul>
+            </p>
+
+ -->
+          </div>
+
+
+    <div class="container">
+
+
+
+        <div class='row'>
+          <div class='col-md-6'>
+            <div class="thumbnail">
+           <!--  <canvas id="slot0" data-processing-sources="https://s3.amazonaws.com/evospace/prototype/figs.pde"></canvas> -->
+            
+            <canvas id="slot0" data-processing-sources="/static/static/js/figs.pde"></canvas>
+            <div class="cover boxcaption">
+            <a class="paint_name">                </a>
+            <!-- <a class="fitness" > </a> -->
+            {% if user.is_authenticated %}
+                
+                <form>
+              
+                  <input id="input-21e" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="xs" >
+                  
+              
+                </form>
+                <button class="addto"> Add to collection</button>
+            {% endif %}
+            </div>
+            </div>
+
+        </div>
+
+
+
+
+        
+ 
+      </br>
+           <div class='col-md-6 col-md-offset-4'>
+            </br></br>
+            <div><p> Compatible with latest versions of Chrome and FireFox. IExplorer 10+ only.</p></div>
+
+
+            <div class="fb-comments" data-href="http://shapes.evospace.org" data-width="470" data-num-posts="10"></div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+
+
+
+       
+
+    </div>
+
+
+    </div>
+
+
+</div><!-- container -->
+
+
+  <div id="box2"><!-- container -->
+
+        <form id="add_collec" enctype="multipart/form-data">
+            <fieldset>
+                <label for="col_name">Name</label>
+                <input type="text" name="name" id="col_name" class="text ui-widget-content ui-corner-all" />
+                <label for="col_description">Description</label>
+                <input type="text" name="description" id="col_description" placeholder="Optional" value="" class="text ui-widget-content ui-corner-all" />
+                <label for="col_option">Visibility</label>
+                       <select name="visibility" id="col_option" placeholder="Optional" lass="text ui-widget-content ui-corner-all">
+                            <option value="PU">Public</option>
+                            <option value="PR">Private</option>
+                        </select>
+            </fieldset>
+            </form>
+
+  </div>
+
+<div id="box3"><!-- container -->
+
+    <form id="add_ind_col" enctype="multipart/form-data">
+        <fieldset id="col_ind" >
+        </fieldset>
+
+        <fieldset>
+            <select id="uc" name="collection"  lass="text ui-widget-content ui-corner-all">
+
+            </select>
+        </fieldset>
+    </form>
+
+</div>
+
+
+     <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">You</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" method="POST">{%csrf_token%}
+            <div class="form-group">
+                <label >Check if you like the following!</label>
+                <div class="checkbox">
+                   <label>
+                      <input type="checkbox" name="webDesing"> Do you like Web design?
+                   </label>
+                    <br/>
+                   <label>
+                      <input type="checkbox" name="webDevelopment"> Do you like Web development?
+                   </label>
+                    <br/>
+                   <label>
+                      <input type="checkbox" name="internet"> Do you like Internet?
+                   </label>
+                </div>
+                <label >Check the education you have!</label>
+                <div class="checkbox">
+                   <label>
+                      <input type="checkbox" name="elementery"> Elementary
+                   </label>
+                    <br/>
+                   <label>
+                      <input type="checkbox" name="high_school"> High School
+                   </label>
+                    <br/>
+                   <label>
+                      <input type="checkbox" name="bachelor"> Bachelor Degree
+                   </label>
+                    <br/>
+                   <label>
+                      <input type="checkbox" name="master"> Master Degree
+                   </label>
+                    <br/>
+                   <label>
+                      <input type="checkbox" name="PhD"> PhD Degree
+                   </label>
+                </div>
+
+            </div>
+            <input type="submit"/>
+        </form>
+      </div>
+
+
+
+
+      <div class="modal-footer">
+           {% if user.is_authenticated %}
+
+           {% else %}
+
+
+           {% endif %}
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!--<button type="button submit" class="btn btn-primary">Save changes</button>-->
+
+      </div>
+    </div>
+  </div>
+ </div>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="static/js/jquery.js"></script>-->
+
+  </body>
+ 
 </html>
