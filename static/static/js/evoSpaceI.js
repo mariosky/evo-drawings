@@ -818,9 +818,10 @@ $(document).ready(function () {
         
     $("#spanish").click(function(){
             
-            alert("delay");
+            
             $("#ingles").hide();
             $("#espanol").show();
+            alert("delay");
 
         });
   
