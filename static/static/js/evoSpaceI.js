@@ -820,6 +820,7 @@ $(document).ready(function () {
             
             
             $("#ingles_var").hide();
+            $("#spanish_var").show();
 
 
         });
