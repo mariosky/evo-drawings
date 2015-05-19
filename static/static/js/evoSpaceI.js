@@ -816,12 +816,9 @@ $(document).ready(function () {
 
     
         
-        $("spanish").click(function(){
+    $("#spanish").click(function(){
             
             alert("delay");
-
-             
-
 
         });
   
