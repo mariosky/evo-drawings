@@ -814,17 +814,17 @@ $(document).ready(function () {
         $("a.youtube").YouTubePopup({ autoplay: 1 });
     });
 
-     $(function () {
-        $("#espanol").visible(true);
-        $("#spanish").click(function(){
+    
+        
+        $("spanish").click(function(){
             
             alert("delay");
 
-             $("#espanol").visible(true);
+             
 
 
         });
-    });
+  
 
     //setTimeout(dataRequest,5000);
 
