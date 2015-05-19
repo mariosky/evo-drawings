@@ -819,9 +819,8 @@ $(document).ready(function () {
     $("#spanish").click(function(){
             
             
-            $("#ingles").hide();
-            $("#espanol").show();
-            alert("delay");
+            $("#ingles_var").hide();
+
 
         });
   
