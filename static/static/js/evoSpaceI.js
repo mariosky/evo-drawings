@@ -819,7 +819,7 @@ $(document).ready(function () {
     $("#spanish").click(function(){
             
             alert("delay");
-            $("#ingles").visible(false);
+            $("#ingles").hide();
 
         });
   
