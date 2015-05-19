@@ -816,7 +816,10 @@ $(document).ready(function () {
 
      $(function () {
         $("#espanol").visible(false);
-        $('li #spanish').click(function(){
+        
+        $('#spanish')on("click", function() {
+                    
+
             alert("delay");
 
              $('#espanol').visible(true);
