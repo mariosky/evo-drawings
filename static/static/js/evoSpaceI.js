@@ -7,11 +7,7 @@ $(document).ready(function () {
     $( "#tabs" ).tabs({collapsible: true});
     //$( "#selectable" ).selectable();
 
-    $('#espanol').visible(false);
-
-    $("#spanish").click(function () {
-       $('#espanol').visible(true)
-        );
+   
 
 
     var get_collections = function(){
@@ -816,6 +812,16 @@ $(document).ready(function () {
 
     $(function () {
         $("a.youtube").YouTubePopup({ autoplay: 1 });
+    });
+
+     $(function () {
+        $("#espanol").visible(false);
+        $('#spanish').click(function(){
+
+             $('#espanol').visible(true);
+
+
+        });
     });
 
     //setTimeout(dataRequest,5000);
