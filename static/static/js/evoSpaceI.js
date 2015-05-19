@@ -815,8 +815,9 @@ $(document).ready(function () {
     });
 
      $(function () {
-        $("#espanol").visible(false);
+        $("#espanol").visible(true);
         $("#spanish").click(function(){
+            
             alert("delay");
 
              $("#espanol").visible(true);
