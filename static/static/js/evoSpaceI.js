@@ -816,13 +816,10 @@ $(document).ready(function () {
 
      $(function () {
         $("#espanol").visible(false);
-        
-        $('#spanish')on("click", function() {
-                    
-
+        $("#spanish").click(function(){
             alert("delay");
 
-             $('#espanol').visible(true);
+             $("#espanol").visible(true);
 
 
         });
