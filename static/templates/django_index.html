@@ -235,7 +235,12 @@
             {% endif %}
             <hr/>
           <h2 id="friends">Friends</h2>
-            {% if user.is_authenticated %}
+          <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Panel title</h3>
+                </div>
+          <div class="panel-body">
+                {% if user.is_authenticated %}
                       
                     {% for f in friends  %}
 
@@ -250,6 +255,9 @@
 
                 <p><a href="facebook/get_login"> log in </a> to see your friend's collections.</p>
             {% endif %}
+          </div>
+          </div>
+            
           <br/>
 
           <br/>
