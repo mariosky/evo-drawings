@@ -235,7 +235,7 @@
             {% endif %}
             <hr/>
           <!-- <h2 id="friends">Friends</h2> -->
-          <div class="panel panel-info">
+          <div class="panel panel-default">
                 <div class="panel-heading">
                   <h3 class="panel-title">Friends</h3>
                 </div>
@@ -262,19 +262,26 @@
 
           <br/>
 
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Collections</h3>
+            </div>
+            <div class="panel-body">
+                {% if user.is_authenticated %}
+                <ol id="selectable" class="glyphicons">
 
-          <h2 id="collections">Collections</h2>
-          {% if user.is_authenticated %}
-            <ol id="selectable" class="glyphicons">
 
+                </ol>
+                <button id="add_collection" title="Add Collection"> + </button>
 
-            </ol>
-            <button id="add_collection" title="Add Collection"> + </button>
+                {% else %}
+                <p><a href="facebook/get_login"> log in </a> to see start or see your collections.</p>
+                {% endif %}
 
-          {% else %}
-          <p><a href="facebook/get_login"> log in </a> to see start or see your collections.</p>
-          {% endif %}
-
+            </div>
+            </div>
+          <!-- <h2 id="collections">Collections</h2> -->
+          
 
           <!-- <hr/>
           <h2>How to:</h2>
