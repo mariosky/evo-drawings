@@ -243,6 +243,8 @@
                 <h2>Welcome! {{ user.first_name }}</h2>
                 <p> <img src="http://graph.facebook.com/{{user.username}}/picture?type=square"/> {{ user.first_name }}. <a href="/logout">Log out</a> </p>
                 <input id="username" type="hidden" value="{{user.username}}"/>
+
+                <h4> Give a rate of your preferance to the painting on the canvas and get more paintings!.</h4> 
             {% else %}
               <h2>Join us!</h2>
                 <p>new user. Please <a href="facebook/get_login">log in </a> with your facebook account.</p>
@@ -250,7 +252,7 @@
                 <input id="username" type="hidden" value="anonymous"/>
             {% endif %}
 
-            <h4> Give a rate of your preferance to the painting on the canvas and get more paintings!.</h4> 
+            
             <hr/>
           <!-- <h2 id="friends">Friends</h2> -->
           <div class="panel panel-default">
