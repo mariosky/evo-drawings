@@ -152,6 +152,17 @@
                     
                   </ul>
                 </li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a></li>
+                    <li class="divider"></li>
+                    
+                  </ul>
+                </li>
               </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -171,11 +182,13 @@
         <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
+                  {% if user.is_authenticated %}
+                    <a href="/logout">Log out</a>
+                  {% else %}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign in <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a></li>
-                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a></li>
-                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a></li>
+                    <li><a href="facebook/get_login" class="btn btn-block">facebook</a></li>
+                  {% endif %} 
                     <li class="divider"></li>
                     
                   </ul>
@@ -191,7 +204,7 @@
 
         <div class="col-md-6">
             
-                <p><h4>Click on the shapes you like, and give the rate you prefer to get more animations!.</h4> </p>
+                <p><h4> Give a rate of your preference to the painting on the canvas to get more paintings!.</h4> </p>
             
         </div>
         <div class="col-md-6">
@@ -224,11 +237,13 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Join us!</h2>
+          
             {% if user.is_authenticated %}
+                <h2>Welcome! {{ user.first_name }}</h2>
                 <p> <img src="http://graph.facebook.com/{{user.username}}/picture?type=square"/> {{ user.first_name }}. <a href="/logout">Log out</a> </p>
                 <input id="username" type="hidden" value="{{user.username}}"/>
             {% else %}
+              <h2>Join us!</h2>
                 <p>new user. Please <a href="facebook/get_login">log in </a> with your facebook account.</p>
                
                 <input id="username" type="hidden" value="anonymous"/>
