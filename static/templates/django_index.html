@@ -154,12 +154,14 @@
                 </li>
 
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
+                  {% if user.is_authenticated %}
+                    <a href="/logout">Log out</a>
+                   {% else %} 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join Us <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a></li>
-                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a></li>
-                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a></li>
-                    <li class="divider"></li>
+                    <li><a href="facebook/get_login" class="btn btn-block btn-default">Facebook</a></li>
+                    
+                    
                     
                   </ul>
                 </li>
@@ -182,13 +184,11 @@
         <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  {% if user.is_authenticated %}
-                    <a href="/logout">Log out</a>
-                  {% else %}
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign in <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="facebook/get_login" class="btn btn-block">facebook</a></li>
-                  {% endif %} 
+                    <li><a href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a></li>
                     <li class="divider"></li>
                     
                   </ul>
@@ -204,7 +204,7 @@
 
         <div class="col-md-6">
             
-                <p><h4> Give a rate of your preference to the painting on the canvas to get more paintings!.</h4> </p>
+                <p></p>
             
         </div>
         <div class="col-md-6">
@@ -248,6 +248,8 @@
                
                 <input id="username" type="hidden" value="anonymous"/>
             {% endif %}
+
+            <h4> Give a rate of your preferance to the painting on the canvas and get more paintings!.</h4> 
             <hr/>
           <!-- <h2 id="friends">Friends</h2> -->
           <div class="panel panel-default">
