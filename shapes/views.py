@@ -152,6 +152,9 @@ def evospace(request):
                         #Agreagando Activity stream para el verbo like
                         activity_stream.activity("person", "like", "evaluate", usr)
 
+                        #Curret experience calculation    
+                        current_experience(request)
+
                 print "=========Parametros==========="
             else:
                 print "Usuario anonimo"
@@ -749,9 +752,9 @@ def home2(request):
         print "Hola, mundo!!"
     return render_to_response('base.html', context_instance=RequestContext(request))
 
-def user_experience(request):
+def current_experience(request):
     #r = redis.StrictRedis(host='localhost', port=6379, db=0)
-
+    r = redis
     experience = 0
 
     if request.user.is_authenticated():
@@ -769,18 +772,29 @@ def user_experience(request):
             fk = d.keys()
 
             if d[fk[0]]['verb'] == 'like':
-                experience = experience + 3
+                experience = experience + 1
 
             if d[fk[0]]['verb'] == 'join':
-                experience = experience + 5
+                experience = experience + 2
 
             if d[fk[0]]['verb'] == 'save':
-                experience = experience + 8
+                experience = experience + 3
 
             if d[fk[0]]['verb'] == 'open':
                 experience = experience + 2
 
-            #print d[fk[0]]['verb']
+            
+    r.set(request.user.username, experience)
+    
+    if int(r.get(request.user.username)) <= 100:
+        r.set(request.user.username, experience)
+
+    else:
+        r.set(request.user.username, 100)
+
+    result=r.get(request.user.username)
+
+    print "current user experience" + result
 
 
 
