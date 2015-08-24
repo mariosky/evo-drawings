@@ -510,6 +510,10 @@ def facebook_login(request):
 
     user = authenticate(token=access_token)
     if user:
+        r = redis
+        u = str(user)
+        login_time = datetime.datetime.now()
+        r.set("time_login:"+u, login_time)
         if user.is_active:
             login(request, user)
             return HttpResponseRedirect('/')
@@ -526,7 +530,13 @@ def facebook_login(request):
 def logout_view(request):
     # Log a user out using Django's logout function and redirect them
     # back to the homepage.
+    r = redis
+    u = request.user.username
+    #print u
+    logout_time = datetime.datetime.now()
+    r.set("time_logout:"+u, logout_time)
     logout(request)
+    # Logout time 
     return HttpResponseRedirect('/')
 
 
