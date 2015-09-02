@@ -89,6 +89,21 @@ class Person(object):
 
         return r
 
+    def get_participation(self, ide=None):
+        self.p = ide
+        
+        try:
+            #"Participaciones"
+            query = "MATCH n-[r]-b WHERE n.id='" + self.p + "' RETURN count(b)"
+            print query
+            result, metadata = cypher.execute(graph_db, query)
+            r = result
+        except:
+            r ="error"
+            print r
+
+        return r
+
 
 class GraphCollection(object):
 
