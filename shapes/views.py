@@ -655,6 +655,7 @@ def get_collection(request, username, collection=None):
 
         #r = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
         #r = redis.StrictRedis(host='localhost', port=6379, db=0)
+        r = redis
         if collection:
             inds_psql = Collection.objects.get(user_collection__user__username=username,
                                                id=collection).individuals.all()

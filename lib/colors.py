@@ -3,7 +3,7 @@ __author__ = 'Yovani/crh'
 from operator import itemgetter
 #from evospace import *
 from evospace_redis_neo4j import *
-from userGraph import Nodo
+from userGraph import Nodo, Person
 from scaleRanking import get_level
 import random
 import numpy
@@ -31,6 +31,10 @@ def fuzzy_fitness(fitness):
             
             exp = int(r.get(usr))
             rate = int(fitness[u])
+            print "&&&&&&&&&&&&&&&&&"
+            print exp
+            print "*****************"
+            print rate
             n = Person()
             participation = n.get_participation(usr)
             participation = participation[0][0]
@@ -42,10 +46,11 @@ def fuzzy_fitness(fitness):
             fuzzy.append(fisuser(rate,exp, ranking))
 
     
-    #print rate_by_fuzzy
-    #print sum(rate_by_fuzzy)
-    #print fuzzy
-    #print sum(fuzzy)        
+    print "@@@@@@@@@@@@@@@@@@@@@"
+    print rate_by_fuzzy
+    print sum(rate_by_fuzzy)
+    print fuzzy
+    print sum(fuzzy)        
     fuzzy_ponderation = sum(rate_by_fuzzy)/sum(fuzzy)  
     return fuzzy_ponderation  
 
