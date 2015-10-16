@@ -824,6 +824,10 @@ $(document).ready(function () {
 
 
         });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
   
 
     //setTimeout(dataRequest,5000);
