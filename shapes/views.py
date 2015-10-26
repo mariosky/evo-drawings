@@ -31,6 +31,7 @@ from lib.evospace_redis_neo4j import Population, Individual
 from lib.colors import init_pop, evolve_Tournament
 from lib.userGraph import Nodo, Person, WebDesign, Relations, Graph_Individual, WebDev, GraphCollection
 from lib.user_activity import Activity_stream
+from lib.scaleRanking import get_level
 
 
 
@@ -46,7 +47,7 @@ from lib.user_activity import Activity_stream
 
 # 	return render(request, "test.html", {"mensaje":m})
 
-EVOLUTION_INTERVAL = 2
+EVOLUTION_INTERVAL = 8
 REINSERT_THRESHOLD = 20
 popName = 'pop'
 
@@ -806,6 +807,38 @@ def current_experience(request):
     result=r.get(request.user.username)
 
     print "current user experience" + result
+
+def get_user_level(request, username):
+    print "^^^^^^^^^^^^^^"
+    if username:
+
+        p = Person()
+        score = p.get_participation(username)
+        score = score[0][0]
+
+        print score
+
+        if score == 0 or username=='anonymous':
+            print "Hola, mundo!!"
+            jd = {"user_level": {"score":0, "level":0}}
+            j = json.dumps(jd)
+            print j
+
+        else:
+            ranking=get_level(score)
+            print score
+            print ranking
+        
+
+            jd = {"user_level": {"score":score, "level":ranking}}
+
+
+            j = json.dumps(jd)
+
+        
+        
+    return HttpResponse(j, content_type='application/json')
+
 
 
 

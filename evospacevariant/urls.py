@@ -23,6 +23,9 @@ urlpatterns = patterns('',
     url(r'^get_collection/(\d+)/(\d+)$', 'shapes.views.get_collection', name='get_collection'),
     url(r'^dashboard/$', 'shapes.views.dashboard', name='dashboard'),
     url(r'^home2/$', 'shapes.views.home2', name='home2'),
+    url(r'^get_user_level/(\d+)/$', 'shapes.views.get_user_level', name='get_user_level'),
+    url(r'^get_user_level/(\w+)/$', 'shapes.views.get_user_level', name='get_user_level'),
+    
 
     url(r'^admin/', include(admin.site.urls)),
 )

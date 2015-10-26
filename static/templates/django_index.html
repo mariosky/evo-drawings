@@ -254,6 +254,35 @@
             
             <hr/>
           <!-- <h2 id="friends">Friends</h2> -->
+                      <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Participation</h3>
+                </div>
+          <div class="panel-body">
+                {% if user.is_authenticated %}
+                      
+                  
+
+                            <div class='col-sm-2'>
+                              <div class="btn-group-vertical" role="group" >
+                                
+                                      Score <span id ="badge1" class="badge">0</span>
+                                </button>
+
+                                <button class="btn btn-default" type="button">
+                                      Experience <span id ="badge2" class="badge">0</span>
+                                </button>
+                               </div> 
+                            </div>
+                    
+            {% else %}
+
+                <p><a href="facebook/get_login"> log in </a> to see your participation.</p>
+            {% endif %}
+          </div>
+          </div> 
+
+
           <div class="panel panel-default">
                 <div class="panel-heading">
                   <h3 class="panel-title">Friends</h3>

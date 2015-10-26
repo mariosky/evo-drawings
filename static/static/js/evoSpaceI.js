@@ -452,6 +452,38 @@ $(document).ready(function () {
         respawn();     
         var container = $(this).parent().parent().parent().parent().prev()[0].id;    
         dataRequestPaints(container);
+
+        //UserScore and rankin
+
+            $.ajax(
+                {
+                    url: "/get_user_level/"+user+"/",
+                    type: "GET",
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(data, textStatus, jqXHR) {
+                        
+                        userScore =data.user_level.score;
+                        userLevel = data.user_level.level;
+
+                    //alert(userScore);
+                    //alert(userLevel);
+
+                    $("#badge1").text(userScore);
+                    $("#badge2").text(userLevel);
+
+
+
+
+
+                        if  (data.user_level == null)
+                            alert("No user level!!") ;
+
+
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)  {
+                        alert ("Error:" + textStatus+" "+errorThrown+" "+jqXHR.responseText);}
+                });
         
     
     });
@@ -796,6 +828,39 @@ $(document).ready(function () {
                     error: function(jqXHR, textStatus, errorThrown)  {
                         alert ("Error:" + textStatus+" "+errorThrown+" "+jqXHR.responseText);}
                 });
+
+
+        //UserScore and ranking
+
+            $.ajax(
+                {
+                    url: "/get_user_level/"+user+"/",
+                    type: "GET",
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(data, textStatus, jqXHR) {
+                        
+                        userScore =data.user_level.score;
+                        userLevel = data.user_level.level;
+
+                    //alert(userScore);
+                    //alert(userLevel);
+
+                    $("#badge1").text(userScore);
+                    $("#badge2").text(userLevel);
+
+
+
+
+
+                        if  (data.user_level == null)
+                            alert("No user level!!") ;
+
+
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)  {
+                        alert ("Error:" + textStatus+" "+errorThrown+" "+jqXHR.responseText);}
+                });
     }
 
     //alert("ready");
@@ -825,9 +890,7 @@ $(document).ready(function () {
 
         });
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+    
   
 
     //setTimeout(dataRequest,5000);
