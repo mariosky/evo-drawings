@@ -370,6 +370,7 @@ $(document).ready(function () {
        //alert("evento"); 
        //alert($(this));
        //alert($(this).parent().parent().parent().parent().prev()[0].id);
+       var user=$("#username").val();
 
          var inputbox = $(this)[0].id; 
       if (sample){
@@ -699,7 +700,8 @@ $(document).ready(function () {
 
         function dataRequest(){
          $("#get_more").hide();//crh
-         $("#check").hide();   
+         $("#check").hide(); 
+         var user=$("#username").val();  
         $.ajax(
                 {
                     url: '/EvoSpace',
