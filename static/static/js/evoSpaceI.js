@@ -893,7 +893,7 @@ $(document).ready(function () {
         });
 
     $("a.leaders").click(function() {
-             //alert("Leaders");
+             alert("Leaders");
 
              $.ajax(
                  {
@@ -942,6 +942,7 @@ $(document).ready(function () {
                      error: function(jqXHR, textStatus, errorThrown)  {
                          alert ("Error:" + textStatus+" "+errorThrown+" "+jqXHR.responseText);}
                  });
+            alert("hello");
     });
 
     
