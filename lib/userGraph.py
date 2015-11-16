@@ -89,6 +89,21 @@ class Person(object):
 
         return r
 
+    def get_lider_board(self):
+        #self.p = ide
+        
+        try:
+            #"Participaciones"
+            query = "MATCH n-[r]-() where n.element_type='person' return n.name as user, count(r) as score order by count(r) DESC"
+            print query
+            result, metadata = cypher.execute(graph_db, query)
+            r = result
+        except:
+            r ="error"
+            print r
+
+        return r
+
     def get_participation(self, ide=None):
         self.p = ide
         

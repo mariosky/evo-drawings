@@ -840,6 +840,37 @@ def get_user_level(request, username):
     return HttpResponse(j, content_type='application/json')
 
 
+def get_liders(request):
+    print "T_T"
+    
+    jd = {"leaders":[]}
+    p = Person()
+    lider_board = p.get_lider_board()
+    #ldier_board = score[0][0]
+
+    print lider_board
+   
+    if lider_board:
+        #   c = 0
+        for lider in lider_board:
+
+            user = lider[0]
+            score = lider[1]
+            ranking=get_level(score)
+            
+
+            de = {"user":user, "score":score, "ranking":ranking}
+            print de
+            jd["leaders"].append(de)     
+
+        
+        j = json.dumps(jd) 
+         
+    else:
+        print "No lider board"
+        
+        
+    return HttpResponse(j, content_type='application/json')
 
 
 
