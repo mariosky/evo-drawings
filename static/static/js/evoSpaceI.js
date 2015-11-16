@@ -892,6 +892,58 @@ $(document).ready(function () {
 
         });
 
+    $("a.leaders").click(function() {
+             //alert("Leaders");
+
+             $.ajax(
+                 {
+                     url: "/get_liders/",
+                     type: "GET",
+                     contentType: "application/json",
+                     dataType: "json",
+                     success: function(data, textStatus, jqXHR) {
+
+
+                        //alert(data.length);
+                        var c = 0;
+                        var txt = ""; 
+                        //alert(Object.keys(data.leaders).length);
+                        for(var obj in data.leaders){
+                             //alert(data[obj].score);
+                             //alert(Object.keys(data).length);
+                             
+                             if (c < Object.keys(data.leaders).length){
+                                c = c + 1;
+                            //alert(data.leaders[obj].user)
+
+                                //alert(c);
+                             //alert(data[obj]);   
+                            
+                             }
+
+                                    //alert(prop + ':' + jsonData[obj][prop]);
+                                                                        
+                                    txt += "<tr>";
+                                    txt += "<th>"+c+"</th>"; 
+                                    txt += "<td>"+data.leaders[obj].user+ "</td>";
+                                    txt += "<td>"+data.leaders[obj].score+ "</td>";
+                                    txt += "<td>"+data.leaders[obj].ranking+ "</td>";
+                                    txt += "</tr>";  
+                                    //document.getElementById('lider-board-t').innerHTML = txt; 
+                                    document.getElementById('lider-board').innerHTML = txt;                                                      
+                       
+                                   
+                         
+                        }
+                       
+
+
+                     },
+                     error: function(jqXHR, textStatus, errorThrown)  {
+                         alert ("Error:" + textStatus+" "+errorThrown+" "+jqXHR.responseText);}
+                 });
+    });
+
     
   
 
