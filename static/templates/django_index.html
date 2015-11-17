@@ -345,6 +345,21 @@
 
             </div>
             </div>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">About This</h3>
+            </div>
+            <div class="panel-body">
+                {% if user.is_authenticated %}
+                <p>This is an experiment of <href="https://en.wikipedia.org/wiki/Interactive_evolutionary_computation">interactive evolutionary computation</>, where the user participates evaluated based on their preferences with respect to the drawing shown on the canvas</p>
+
+                {% else %}
+                <p><a href="facebook/get_login"> log in </a> to see start or see your collections.</p>
+                {% endif %}
+
+            </div>
+            </div>
           <!-- <h2 id="collections">Collections</h2> -->
           
 
