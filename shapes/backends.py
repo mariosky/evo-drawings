@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 __author__ = 'mariosky'
 #Facebook backend basado en: http://djangosnippets.org/snippets/2065/
 # 16 June 2010 Added missing imports. Cleaned up the template.
