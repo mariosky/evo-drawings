@@ -260,7 +260,7 @@
                 <!-- <p> <img src="http://graph.facebook.com/{{user.username}}/picture?type=square"/> {{ user.first_name }}. <a href="/logout">Log out</a> </p> -->
                 <input id="username" type="hidden" value="{{user.username}}"/>
 
-                <h4> Give a rate of your preferance to the draw on the canvas and get more paintings!.</h4> 
+                <h4> Give a rate of your preferance to the draw on the canvas and wait until the draw painted completely in order to get more drawings!.</h4> 
             {% else %}
               <h2>Join us!</h2>
                 <p>new user. Please <a href="facebook/get_login">log in </a> with your facebook account.</p>
@@ -352,7 +352,7 @@
             </div>
             <div class="panel-body">
                 {% if user.is_authenticated %}
-                <p>This is an experiment of <a href="https://en.wikipedia.org/wiki/Interactive_evolutionary_computation">interactive evolutionary computation<a/>, where the user participates evaluated based on their preferences with respect to the drawing shown on the canvas</p>
+                <p>This is an experiment of <a href="https://en.wikipedia.org/wiki/Interactive_evolutionary_computation">interactive evolutionary computation </a>, where the user participates evaluated based on their preferences with respect to the drawing shown on the canvas</p>
 
                 {% else %}
                 <p><a href="facebook/get_login"> log in </a> to see start or see your collections.</p>
