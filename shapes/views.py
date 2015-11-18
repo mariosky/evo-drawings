@@ -746,6 +746,11 @@ def add_ind_to_col(request, username):
         else:
             message = "No username in evoart!"
 
+        print "YYYYYYYYYYYYY"
+        print col
+        print ind
+        print message
+
         data = ({'collection': col, 'individual': ind, 'message': message})
         datar = json.dumps(data)
 
