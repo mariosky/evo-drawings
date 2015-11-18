@@ -229,11 +229,13 @@ $(document).ready(function () {
                 buttons: { "Add to Collection": function() {
 
                     var dataString = $("#add_ind_col").serialize();
+                    var individual = $("#individual_id").val();
+                    var user_collection = $("#uc").val();
                     console.log('datastring '+dataString);
                     $.ajax({
                         type: "POST",
                         url: "/add_ind_to_col/{{ user.username }}/",
-                        data: dataString,
+                        data: JSON.stringify({"id":individual, "userCollection":user_collection}),
                         dataType: "json",
                         contentType:"application/json",
                         success: function(data) {
@@ -290,7 +292,7 @@ $(document).ready(function () {
         console.log(dataSample.substr(14));
         console.log(dataSample);
 
-        var inp ='<input type="text'+ '" name="individual" value="'+dataSample+'" readonly>';
+        var inp ='<input type="text'+ '" id="individual_id" name="individual" value="'+dataSample+'" readonly>';
 
 
         $("#col_ind").html(inp);
