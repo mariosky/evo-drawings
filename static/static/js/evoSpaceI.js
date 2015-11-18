@@ -164,7 +164,7 @@ $(document).ready(function () {
                 modal:true,
                 show:'fadeIn', //crh
                 hide:'fadeOut',
-                buttons: { "Add to Collection": function() {
+                buttons: { "Add to my Collection": function() {
 
                     //var dataString = $("#add_ind_col").serialize();
                     var individual = $("#individual_id").val()
