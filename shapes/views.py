@@ -622,7 +622,7 @@ def add_collection(request, username):
         datar = json.dumps(data)
         print datar
 
-    return HttpResponse(datar, mimetype='application/json')
+    return HttpResponse(datar, content_type='application/json')
 
 
 def get_user_collections(request, username):
@@ -638,7 +638,7 @@ def get_user_collections(request, username):
         usr = request.user.username
         activity_stream.activity("person", "open", "open a collection", usr)
 
-    return HttpResponse(j, mimetype='application/json')
+    return HttpResponse(j, content_type='application/json')
 
 
 def get_collection(request, username, collection=None):
@@ -754,7 +754,7 @@ def add_ind_to_col(request, username):
         data = ({'collection': col, 'individual': ind, 'message': message})
         datar = json.dumps(data)
 
-    return HttpResponse(datar, mimetype='application/json')
+    return HttpResponse(datar, content_type='application/json')
 
 
 def dashboard(request):
