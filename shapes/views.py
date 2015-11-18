@@ -746,7 +746,7 @@ def add_ind_to_col(request, username):
         else:
             message = "No username in evoart!"
 
-        print "YYYYYYYYYYYYY"
+        print "YYYYYYYYYYYYYY"
         print col
         print ind
         print message
