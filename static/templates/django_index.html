@@ -252,7 +252,7 @@
 
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row">
+    <div class="row">
         <div class="col-md-4">
           
             {% if user.is_authenticated %}
@@ -269,35 +269,7 @@
             {% endif %}
 
             
-            <hr/>
-          <!-- <h2 id="friends">Friends</h2> -->
-<!--           <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Participation</h3>
-                </div>
-          <div class="panel-body">
-                {% if user.is_authenticated %}
-                      
-                  
-
-                            <div class='col-sm-2'>
-                              <div class="btn-group-vertical" role="group" >
-                                <button class="btn btn-default" type="button">
-                                      Score <span id ="badge1" class="badge">0</span>
-                                </button>
-
-                                <button class="btn btn-default" type="button">
-                                      Experience <span id ="badge2" class="badge">0</span>
-                                </button>
-                               </div> 
-                            </div>
-                    
-            {% else %}
-
-                <p><a href="facebook/get_login"> log in </a> to see your participation.</p>
-            {% endif %}
-          </div>
-          </div>  -->
+         
 
           {% if user.is_authenticated %}
           <div class="panel panel-default">
@@ -318,9 +290,10 @@
                             </div>
                     {% endfor   %}
             
-            {% endif %}
+            
           </div>
           </div>
+          {% endif %}
             
           <br/>
 
@@ -341,10 +314,11 @@
                 <button id="add_collection" title="Add Collection"> New </button>
 
                
-                {% endif %}
+                
 
             </div>
             </div>
+            {% endif %}
 
             <div class="panel panel-default">
             <div class="panel-heading">
@@ -356,43 +330,9 @@
 
             </div>
             </div>
-          <!-- <h2 id="collections">Collections</h2> -->
-          
 
-          <!-- <hr/>
-          <h2>How to:</h2>
-          <p><ul >
-                    <li>
-                        <a class="youtube" href="http://www.youtube.com/watch?v=2PFA7mSfUdA">Rate individuals</a>
-                    </li>
-
-                    <li>
-                        <a class="youtube" href="http://www.youtube.com/watch?v=5FwEpV75aTA">See Ancestors</a>
-                    </li>
-
-                    <li>
-                        <a class="youtube" href="http://www.youtube.com/watch?v=zE_HGPSDA_0">Save to Collections</a>
-                    </li>
-
-                </ul>
-          </p>
-          <hr/>
-          <h2>Help us:</h2>
-          <p><ul >
-                        <li>
-                          You can fork code from  <a href="https://github.com/mariosky/evospacei" target="_blank" >Git Hub. </a>
-                          But you better wait for the new version. Bugs and issues please also in <a href="https://github.com/mariosky/evospacei/issues" target="_blank">Git Hub. </a>.
-                        </li>
-                        <li>
-                            Our To-Do list, please put feature requests
-                            <a href="https://docs.google.com/document/d/1ncV4tehiLQjGMX1-FcCgiEepSsoJ90BSnYli5PN_jdI/edit?usp=sharing " target="_blank">here.</a>
-                        </li>
-
-                   </ul>
-            </p>
-
- -->
           </div>
+       </div>   
 
 
     <div class="container">
