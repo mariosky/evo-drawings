@@ -192,14 +192,14 @@ function AsImage()
 
             <div class='six columns slideup'>
                 {% if user.is_authenticated %}
-                    <p> <img src="http://graph.facebook.com/{{user.email}}/picture?type=small"/> {{ user.first_name }}.  </p>
+                    <p> <img src="http://graph.facebook.com/{{user.email}}/picture?type=square"/> {{ user.first_name }}.  </p>
                 {% else %}
                     <p>Welcome, new user. Please <a href="facebook/get_login"> log in </a>with your facebook account. </p>
                 {% endif %}
             </div>
             <div class='six columns  slideup'>
 
-                <h4 class='strapline'> <a href="/"> <strong> Shapes</strong>   </a></h4>
+                <h4 > <a href="/"> <strong> EvoDrawings</strong>   </a></h4>
 
             </div>
 
