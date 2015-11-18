@@ -332,37 +332,37 @@
             </div>
 
           </div>
+
+          <div class='row'>
+            <div class='col-md-6'>
+              <div class="thumbnail">
+             <!--  <canvas id="slot0" data-processing-sources="https://s3.amazonaws.com/evospace/prototype/figs.pde"></canvas> -->
+              
+              <canvas id="slot0" data-processing-sources="/static/static/js/figs.pde"></canvas>
+              <divs class="cover boxcaption">
+              <a class="paint_name">                </a>
+              <!-- <a class="fitness" > </a> -->
+              {% if user.is_authenticated %}
+                  
+                  <form>
+                
+                    <input id="input-21e" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="xs" data-toggle="tooltip" data-placement="right" title"Evaluate the paiting!">
+                    
+                
+                  </form>
+                  <button class="addto"> Add to my collection</button>
+              {% endif %}
+              </div>
+              </div>
+
+          </div>
+
        </div>   
 
 
     <div class="container">
 
-
-
-        <div class='row'>
-          <div class='col-md-6'>
-            <div class="thumbnail">
-           <!--  <canvas id="slot0" data-processing-sources="https://s3.amazonaws.com/evospace/prototype/figs.pde"></canvas> -->
-            
-            <canvas id="slot0" data-processing-sources="/static/static/js/figs.pde"></canvas>
-            <divs class="cover boxcaption">
-            <a class="paint_name">                </a>
-            <!-- <a class="fitness" > </a> -->
-            {% if user.is_authenticated %}
-                
-                <form>
-              
-                  <input id="input-21e" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="xs" data-toggle="tooltip" data-placement="right" title"Evaluate the paiting!">
-                  
-              
-                </form>
-                <button class="addto"> Add to my collection</button>
-            {% endif %}
-            </div>
-            </div>
-
-        </div>
-
+        
 
 
 
@@ -430,7 +430,7 @@
 </div>
 
 
-     <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
