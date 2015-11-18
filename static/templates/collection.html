@@ -394,7 +394,7 @@ $(document).ready(function () {
 
             <div class='six columns slideup'>
                 {% if user.is_authenticated %}
-                    <p> <img src="//graph.facebook.com/{{user.email}}/picture?type=small"/> {{ user.first_name }}. <a href="/logout">Log out</a>  </p>
+                    <p> <img src="//graph.facebook.com/{{user.email}}/picture?type=square"/> {{ user.first_name }}. <a href="/logout">Log out</a>  </p>
                 {% else %}
                     <p>Welcome, new user. Please <a href="facebook/get_login"> log in </a>with your facebook account. </p>
                 {% endif %}
@@ -402,8 +402,8 @@ $(document).ready(function () {
             <div class='six columns  slideup'>
 
 
-                <h4 class='strapline'> <a href="/"> <strong> Shapes</strong>   </a></h4>
-                <h5 class='strapline'> Click on the shapes you like, and get more! </h5>   </div>
+                <h4 class='strapline'> <a href="/"> <strong> EvoDrawings</strong>   </a></h4>
+                <h5 class='strapline'>  </h5>   </div>
 
 
         </div>
