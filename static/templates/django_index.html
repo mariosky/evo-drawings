@@ -263,7 +263,7 @@
                 <p> Please rate each drawing on the canvas, but wait until the drawing animation is complete. After each rating you will get another drawing. Collect your favorites!.</p> 
             {% else %}
               <h2>Help us!</h2>
-                <p>new user. Please <a href="facebook/get_login">log in </a> with your facebook account.</p>
+                <p>Please to participate <a href="facebook/get_login">log in </a> with your facebook account.</p>
                
                 <input id="username" type="hidden" value="anonymous"/>
             {% endif %}
@@ -299,14 +299,14 @@
           </div>
           </div>  -->
 
-
+          {% if user.is_authenticated %}
           <div class="panel panel-default">
                 <div class="panel-heading">
                   <h3 class="panel-title">Friends</h3>
                 </div>
 
           <div class="panel-body">
-             {% if user.is_authenticated %}
+             
                       
                     {% for f in friends  %}
 
@@ -327,14 +327,14 @@
           <br/>
 
 
-
+          {% if user.is_authenticated %}
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Collections</h3>
             </div>
             
             <div class="panel-body">
-            {% if user.is_authenticated %}
+            
                 
                 <ol id="selectable" class="glyphicons">
 
@@ -354,13 +354,9 @@
               <h3 class="panel-title">About This</h3>
             </div>
             <div class="panel-body">
-                <!-- {% if user.is_authenticated %} -->
-                <p> This is an experiment of <a href="https://en.wikipedia.org/wiki/Interactive_evolutionary_computation">interactive evolutionary computation </a>, where a population of drawings is evolving, as in nature only the fittest survive and reproduce. You can make  a change, assign better ratings on those you like, to help them survive. </p>
                 
-                <!-- {% else %}
-                <p><a href="facebook/get_login"> log in </a> to see start or see your collections.</p>
-                {% endif %}
- -->
+                <p> This is an experiment of <a href="https://en.wikipedia.org/wiki/Interactive_evolutionary_computation">interactive evolutionary computation </a>, where a population of drawings is evolving, as in nature only the fittest survive and reproduce. You can make  a change, assign better ratings on those you like, to help them survive. </p>
+
             </div>
             </div>
           <!-- <h2 id="collections">Collections</h2> -->
