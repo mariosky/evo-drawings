@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 #Facebook configuration
 
-FACEBOOK_APP_ID = os.environ['APP_KEY']
+FACEBOOK_APP_ID = os.environ['APP_ID']
 FACEBOOK_APP_SECRET = os.environ['APP_SECRET']
 FACEBOOK_REDIRECT_URL = 'https://thawing-forest-8930.herokuapp.com/facebook/login'
 AUTHENTICATION_BACKENDS = (
