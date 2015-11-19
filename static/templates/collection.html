@@ -231,7 +231,7 @@ $(document).ready(function () {
                     var dataString = $("#add_ind_col").serialize();
                     var individual = $("#individual_id").val();
                     var user_collection = $("#uc").val();
-                    alert(individual);
+                    //alert(individual);
                     console.log('datastring '+dataString);
                     $.ajax({
                         type: "POST",
@@ -240,7 +240,7 @@ $(document).ready(function () {
                         dataType: "json",
                         contentType:"application/json",
                         success: function(data) {
-                            alert(data.name);
+                            //alert(data.name);
 
                             //console.log('hola '+data.visibility);
                             hm.wHumanMsg(data.message);
