@@ -8,5 +8,5 @@ py2neo==1.6.4
 pystache==0.5.4
 redis==2.8.0
 static==1.1.1
-static3==0.5.1
-wsgiref==0.1.2
+static3==0.5.2
+wsgiref==0.1.3
